@@ -6,9 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///albums.sqlite3'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-a =\
-    'postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{db}'.format(
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{db}'.format(
         user=os.getenv("DBUSER"),
         passwd=os.getenv("DBPASS"),
         host=os.getenv("DBHOST"),
@@ -66,7 +64,7 @@ def new_album():
     db.session.add(album)
     db.session.commit()
     flash('Record was succesfully added')
-    return {"message":"success"}
+    return {"":{}, "message":"success"}
 
 
 if __name__ == '__main__':
